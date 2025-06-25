@@ -1,4 +1,4 @@
-# Momentum Project
+# corporate-momentum-coding-challenge
 
 A simple REST API service for storing, retrieving, and summarizing large English texts using FastAPI and Celery.
 
@@ -24,26 +24,26 @@ A simple REST API service for storing, retrieving, and summarizing large English
 - [Docker Compose](https://docs.docker.com/compose/)
 - (Optional) [VS Code Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for faster container rebuilds and development.
 
-### Setup Environment Variables
-
-Before starting, create your `.env` file from the provided example:
-
-```sh
-cp api/.env.example api/.env
-```
-
-You can edit `api/.env` to adjust any settings if needed.
-
 ### Quick Start
 
 1. **Clone the repository:**
 
    ```sh
    git clone <your-repo-url>
-   cd momentum
+   cd corporate-momentum-coding-challenge
    ```
 
-2. **Start the services:**
+2. **Setup Environment Variables**
+
+   Before starting, create your `.env` file from the provided example:
+
+   ```sh
+   cp api/.env.example api/.env
+   ```
+
+   You can edit `api/.env` to adjust any settings if needed.
+
+3. **Start the services:**
 
    ```sh
    docker-compose up --build
@@ -54,9 +54,9 @@ You can edit `api/.env` to adjust any settings if needed.
    - The Celery worker
    - Redis
 
-3. **(Optional) Use Dev Container:**
+4. **(Optional) Use Dev Container:**
    - Open the project in VS Code.
-   - Click "Reopen in Container" if prompted, or use the Command Palette: `Dev Containers: Reopen in Container`.
+   - Go to "api" directory (code api) and then click "Reopen in Container" if prompted, or use the Command Palette: `Dev Containers: Reopen in Container`.
    - This provides a pre-configured environment for faster builds and development.
 
 ## API Usage

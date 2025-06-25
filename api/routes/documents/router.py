@@ -6,12 +6,11 @@ from . import controller, exceptions
 router = APIRouter(prefix="/documents", tags=["Document"])
 
 
-@router.post("/", operation_id="store_text")
+@router.post("", operation_id="store_text")
 def store_text(
     text: str = Form(...),
 ) -> JSONResponse:
     return controller.store_text(text=text)
-
 
 @router.get("/{document_id}", operation_id="get_text", response_model=dict)
 def get_text(document_id: str) -> dict:
