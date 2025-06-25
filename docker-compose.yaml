@@ -1,0 +1,32 @@
+version: '3'
+name: momentum-project
+services:
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - ./api/:/app
+    env_file:
+      - ./api/.env
+    ports:
+      - "8000:8000"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - redis
+
+  worker:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command: celery -A celery_worker worker --loglevel=info
+    volumes:
+      - ./api/:/app
+    env_file:
+      - ./api/.env
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
